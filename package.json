@@ -4,6 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "db:delete": "dropdb capstone-database",
+    "db:create": "createdb capstone-database",
+    "db:schema": "psql -f schema.sql capstone-database",
+    "db:seed": "psql -f seed.sql capstone-database",
+    "db:reset": "npm run db:delete && npm run db:create && npm run db:schema && npm run db:seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
