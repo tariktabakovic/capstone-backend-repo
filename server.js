@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const pg = require('pg');
+const PORT = 3000; 
 const app = express();
 
 app.use(bodyParser.json());
