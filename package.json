@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon",
     "db:delete": "dropdb capstone-database",
     "db:create": "createdb capstone-database",
     "db:schema": "psql -f schema.sql capstone-database",
