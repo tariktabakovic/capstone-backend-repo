@@ -16,7 +16,10 @@ mongoose
     .connect(db)
     .then(()=> console.log('Mongo DB connected'))
     .catch(err=> console.log(err))
-    
+
+// Use Routes
+app.use('/api/dailythoughts', dailythoughts);
+
 const port=process.env.PORT || 5000;
 
 app.use('/api/users', require('./routes/api/users'));
