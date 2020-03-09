@@ -11,4 +11,6 @@ const DailyThoughtSchema = new Schema ({
             type: Date,
             default: Date.now
     }
-})
+});
+
+module.exports = DailyThought = mongoose.model('dailythought', DailyThoughtSchema);
