@@ -25,4 +25,14 @@ router.post('/', (req, res)=> {
     newDailyThought.save().then(DailyThought => res.json(DailyThought));
 });
 
+// @route POST api/dailythoughts/:id
+// @desc Delete a dailythought
+// @access Public
+
+router.delete('/:id', (req, res)=> {
+    DailyThought.findById(req.params.id)
+        .then(DailyThought => DailyThought.remove().then(()=>res.json({success: true})))
+        .catch(err => res.status(404).json({success: false}));
+});
+    
 module.exports = router;
