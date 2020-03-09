@@ -1,9 +1,7 @@
 const express = require('express');
 const mongoose = require('mogoose');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
 const pg = require('pg');
-const PORT = 3000; 
 const app = express();
 
 let pool = new pg.Pool ({
@@ -38,7 +36,7 @@ app.use(bodyParser.json());
 // DB Config
 const db = require('./config/keys').mongoURI;
 
-// 
+// DB connect
 mongoose
     .connect(db)
     .then(()=> console.log('Mongo DB connected'))
@@ -46,6 +44,7 @@ mongoose
     
 const port=process.env.PORT || 5000;
 
+app.use('/api/users', require('./routes/api/users'));
 
 app.listen(port, ()=> console.log(`Server started on port ${port}`))
 
