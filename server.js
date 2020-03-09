@@ -1,6 +1,9 @@
 const express = require('express');
-const mongoose = require('mogoose');
+const mongoose = require('mongoose');
 const app = express();
+const bodyParser = require('body-parser');
+
+const dailythoughts = require('./routes/api/dailythoughts');
 
 app.use(express.json());
 app.use(bodyParser.json());
