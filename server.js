@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mogoose');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const pg = require('pg');
@@ -43,4 +44,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.post('/api/new-account', function(request, respnse){
+    console.log(request.body);
+});
 app.listen(PORT, () => console.log('listening on port' + PORT)); 
