@@ -14,4 +14,15 @@ router.get('/', (req, res)=> {
         .then(DailyThoughts => res.json(DailyThoughts))
 });
 
+// @route POST api/dailythoughts
+// @desc Create a dailythought
+// @access Public
+
+router.post('/', (req, res)=> {
+    const newDailyThought = new DailyThought({
+        name: req.body.name
+    });
+    newDailyThought.save().then(DailyThought => res.json(DailyThought));
+});
+
 module.exports = router;
