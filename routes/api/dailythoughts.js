@@ -17,7 +17,7 @@ router.get('/', (req, res)=> {
 
 // @route POST api/dailythoughts
 // @desc Create a dailythought
-// @access Public
+// @access Private
 
 router.post('/', auth, (req, res)=> {
     const newDailyThought = new DailyThought({
@@ -28,7 +28,7 @@ router.post('/', auth, (req, res)=> {
 
 // @route POST api/dailythoughts/:id
 // @desc Delete a dailythought
-// @access Public
+// @access Private
 
 router.delete('/:id', auth, (req, res)=> {
     DailyThought.findById(req.params.id)
