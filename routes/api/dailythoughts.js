@@ -19,7 +19,7 @@ router.get('/', (req, res)=> {
 // @desc Create a dailythought
 // @access Public
 
-router.post('/', (req, res)=> {
+router.post('/', auth, (req, res)=> {
     const newDailyThought = new DailyThought({
         name: req.body.name
     });
@@ -30,7 +30,7 @@ router.post('/', (req, res)=> {
 // @desc Delete a dailythought
 // @access Public
 
-router.delete('/:id', (req, res)=> {
+router.delete('/:id', auth, (req, res)=> {
     DailyThought.findById(req.params.id)
         .then(DailyThought => DailyThought.remove().then(()=>res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));
