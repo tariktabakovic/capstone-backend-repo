@@ -9,7 +9,7 @@ const User = require('../../models/User');
 
 /**
  * @route   POST api/users
- * @desc    Get all users
+ * @desc    Register all users
  * @access  Private
  */
 
