@@ -1,9 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const app = express();
 const bodyParser = require('body-parser');
+const app = express();
 
-const dailythoughts = require('./routes/api/dailythoughts');
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -18,7 +17,8 @@ mongoose
     .catch(err=> console.log(err))
 
 // Use Routes
-app.use('/api/dailythoughts', dailythoughts);
+app.use('/api/dailythoughts', require('./routes/api/dailythoughts'));
+app.use('/api/users', require('./routes/api/users'));
 
 const port=process.env.PORT || 5000;
 
